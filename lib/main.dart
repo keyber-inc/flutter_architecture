@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
   runApp(MyApp());
@@ -30,15 +31,35 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  @override
+  void initState() {
+    super.initState();
+    _loadCounter();
+  }
+
+  void _loadCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      _counter = prefs.getInt('counter') ?? 0;
+    });
+  }
+
+  void _saveCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setInt('counter', _counter);
+  }
+
   void _incrementCounter() {
     setState(() {
       _counter++;
+      _saveCounter();
     });
   }
 
   void _resetCounter() {
     setState(() {
       _counter = 0;
+      _saveCounter();
     });
   }
 
