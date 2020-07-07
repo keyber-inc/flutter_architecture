@@ -29,6 +29,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final _prefs = SharedPreferences.getInstance();
   int _counter = 0;
 
   @override
@@ -38,14 +39,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void _loadCounter() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     setState(() {
       _counter = prefs.getInt('counter') ?? 0;
     });
   }
 
   void _saveCounter() async {
-    final prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     prefs.setInt('counter', _counter);
   }
 
