@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_architecture/presentation/my_home/my_home_model.dart';
+import 'package:flutter_architecture/ui/my_home/my_home_view_model.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
@@ -9,10 +9,10 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<MyHomeModel>(
-      create: (_) => MyHomeModel(),
-      child: Consumer<MyHomeModel>(
-        builder: (context, model, child) {
+    return ChangeNotifierProvider<MyHomeViewModel>(
+      create: (_) => MyHomeViewModel()..loadCounter(),
+      child: Consumer<MyHomeViewModel>(
+        builder: (context, viewModel, child) {
           return Scaffold(
             appBar: AppBar(
               title: Text(title),
@@ -25,7 +25,7 @@ class MyHomePage extends StatelessWidget {
                     'You have pushed the button this many times:',
                   ),
                   Text(
-                    '${model.counter}',
+                    '${viewModel.counter.count}',
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   RaisedButton(
@@ -47,7 +47,7 @@ class MyHomePage extends StatelessWidget {
                               FlatButton(
                                 child: Text('Yes'),
                                 onPressed: () {
-                                  model.resetCounter();
+                                  viewModel.resetCounter();
                                   Navigator.of(context).pop();
                                 },
                               ),
@@ -62,7 +62,7 @@ class MyHomePage extends StatelessWidget {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
-                model.incrementCounter();
+                viewModel.incrementCounter();
               },
               tooltip: 'Increment',
               child: Icon(Icons.add),
