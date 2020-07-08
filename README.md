@@ -14,3 +14,7 @@ state_notifier と相性のよい freezed を使って ChangeNotifier が保持�
 * [provider](https://pub.dev/packages/provider)
 * [state_notifier](https://pub.dev/packages/state_notifier)
 * [freezed](https://pub.dev/packages/freezed)
+
+## Lisence
+
+MIT
