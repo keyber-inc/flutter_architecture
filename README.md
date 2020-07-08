@@ -1,7 +1,7 @@
 # MVVM(Model-View-ViewModel)
 
 StatelessWidget + provider + changeNotifier + EntityRepository  
-[provider+changeNotifier]() の Model 部分のうち、 Entity の取得や保存などの処理を EntityRepository として隠蔽した。  
+[provider+changeNotifier](https://github.com/keyber-inc/flutter_architecture/tree/provider+changeNotifier) の Model 部分のうち、 Entity の取得や保存などの処理を EntityRepository として隠蔽した。  
 これにより、 ViewModel は Entity がネットワークから取得したものなのか、ローカルから取得したものなのか意識する必要がなくなる。  
 
 ![mvvm](https://user-images.githubusercontent.com/13707135/86935787-3228ea80-c178-11ea-926c-0a37951ca2af.png)
