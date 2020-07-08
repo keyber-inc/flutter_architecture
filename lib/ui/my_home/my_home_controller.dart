@@ -16,7 +16,7 @@ abstract class MyHomeState with _$MyHomeState {
 class MyHomeController extends StateNotifier<MyHomeState> with LocatorMixin {
   MyHomeController() : super(MyHomeState(counter: Counter())) {}
 
-  final _counterRepository = CounterRepository();
+  CounterRepository get counterRepository => read<CounterRepository>();
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class MyHomeController extends StateNotifier<MyHomeState> with LocatorMixin {
 
   Future<void> _loadCounter() async {
     state = state.copyWith(
-      counter: await _counterRepository.loadCounter(),
+      counter: await counterRepository.loadCounter(),
     );
   }
 
