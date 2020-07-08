@@ -12,3 +12,7 @@ StatelessWidget + provider + changeNotifier + EntityRepository
 ### package
 
 * [provider](https://pub.dev/packages/provider)
+
+## Lisence
+
+MIT
