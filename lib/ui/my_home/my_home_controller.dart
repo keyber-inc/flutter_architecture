@@ -29,11 +29,17 @@ class MyHomeController extends StateNotifier<MyHomeState> with LocatorMixin {
     );
   }
 
-  void incrementCounter() {
-    state = state.copyWith(counter: Counter(count: state.counter.count + 1));
+  Future<void> _saveCounter() async {
+    counterRepository.saveCounter(state.counter);
   }
 
-  void resetCounter() {
+  Future<void> incrementCounter() async {
+    state = state.copyWith(counter: Counter(count: state.counter.count + 1));
+    await _saveCounter();
+  }
+
+  Future<void> resetCounter() async {
     state = state.copyWith(counter: Counter(count: 0));
+    await _saveCounter();
   }
 }
