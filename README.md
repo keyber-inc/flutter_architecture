@@ -1,7 +1,7 @@
 # MVC(Model-View-Controller)+state_notifier
 
 StatelessWidget + provider + state_notifier + freezed + LocatorMixin(DI: Dependency Injection) + EntityRepository  
-[mvvm](https://github.com/keyber-inc/flutter_architecture/tree/mvvm) の ChangeNotifier を StateNotifier に置き換えたことで、 changeNotifier.notifyListeners() を呼ぶ必要がなくなった。
+[mvvm](https://github.com/keyber-inc/flutter_architecture/tree/mvvm) の ChangeNotifier を StateNotifier に置き換えたことで、 changeNotifier.notifyListeners() を呼ぶ必要がなくなった。  
 state_notifier と相性のよい freezed を使って ChangeNotifier が保持する State クラスを自動生成し、 LocatorMixin を使って DI することでテストしやすくした。
 
 ![mvc+state_notifier](https://user-images.githubusercontent.com/13707135/86937058-c051a080-c179-11ea-856e-88de92aba543.png)
