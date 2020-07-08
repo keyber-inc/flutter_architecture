@@ -1,16 +1,27 @@
-# MVC(Model-View-Controller)+state_notifier
+# flutter_architecture
 
-StatelessWidget + provider + state_notifier + freezed + LocatorMixin(DI: Dependency Injection) + EntityRepository  
-[mvvm](https://github.com/keyber-inc/flutter_architecture/tree/mvvm) の ChangeNotifier を StateNotifier に置き換えたことで、 changeNotifier.notifyListeners() を呼ぶ必要がなくなった。  
-state_notifier と相性のよい freezed を使って ChangeNotifier が保持する State クラスを自動生成し、 LocatorMixin を使って DI することでテストしやすくした。
+＋ボタンを押すと数字がカウントアップし、リセットボタンを押すと数字が0にリセットされる簡単なアプリを例に、 Flutter のアーキテクチャをまとめました。
 
-![mvc+state_notifier](https://user-images.githubusercontent.com/13707135/86937058-c051a080-c179-11ea-856e-88de92aba543.png)
+## アプリ
 
-* ユーザ操作を契機とした値の変更は、 StateNotifier の function を呼ぶ
-* ユーザ操作やローカルから値を読み出した等で値が変化した場合、 値を参照している画面が勝手に更新される
+* ＋ボタンを押すと数字がカウントアップします
+* リセットボタンを押すと数字が0にリセットされます
+* 数字はアプリが終了しても保持され、次回起動時に復元されます
 
-### package
+<img width="30%" src="https://user-images.githubusercontent.com/13707135/86941163-98187080-c17e-11ea-9da7-6d93c4208b2c.gif">
 
-* [provider](https://pub.dev/packages/provider)
-* [state_notifier](https://pub.dev/packages/state_notifier)
-* [freezed](https://pub.dev/packages/freezed)
+## アーキテクチャ
+
+上から簡単な順に並んでいます。  
+リンクから各ソースコードを見ることが出来ます。
+
+名称|概要
+--|--
+[stateful](https://github.com/keyber-inc/flutter_architecture/tree/stateful)|よくある StateFullWidget
+[provider+changeNotifier](https://github.com/keyber-inc/flutter_architecture/tree/provider+changeNotifier)|StatelessWidget + Provider パターン
+[mvvm](https://github.com/keyber-inc/flutter_architecture/tree/mvvm)|`provider+changeNotifier` のデータまわりを改良
+[mvc+state_notifier](https://github.com/keyber-inc/flutter_architecture/tree/mvc+state_notifier)|`mvvm` の ChangeNotifier を StateNotifier に置き換えたパターン
+
+## Lisence
+
+MIT
