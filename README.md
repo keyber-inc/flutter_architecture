@@ -11,3 +11,7 @@ View を静的にして、値の変更や操作は Model に分離する。
 ### package
 
 * [provider](https://pub.dev/packages/provider)
+
+## Lisence
+
+MIT
