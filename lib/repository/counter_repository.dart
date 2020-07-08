@@ -2,6 +2,10 @@ import 'package:flutter_architecture/entity/counter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CounterRepository {
+  static final CounterRepository _instance = CounterRepository._internal();
+  factory CounterRepository() => _instance;
+  CounterRepository._internal();
+
   final _prefs = SharedPreferences.getInstance();
 
   Future<Counter> loadCounter() async {
